@@ -17,7 +17,7 @@ export function Counter() {
 
   return (
     <Fade in={true} timeout={1200}>
-      <div>
+      <section className={styles.counter}>
         <div className={styles.row}>
           <button
             className={styles.button}
@@ -58,7 +58,7 @@ export function Counter() {
             Add Async
           </Button>
         </div>
-      </div>
+      </section>
     </Fade>
   );
 }

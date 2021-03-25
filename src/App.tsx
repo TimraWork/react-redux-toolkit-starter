@@ -1,10 +1,10 @@
 import React from "react";
 import { Counter } from "./components/counter/Counter";
-import "./App.css";
 import { Switch, Route } from "react-router-dom";
 import { Header } from "./components/header/Header";
 import { ThemeProvider } from "@material-ui/core";
 import { theme } from "./theme";
+import { Footer } from "./components/footer/Footer";
 
 const App: React.FC<{}> = React.memo(() => {
   return (
@@ -16,7 +16,7 @@ const App: React.FC<{}> = React.memo(() => {
           <Route exact path="/about" component={Header} />
         </Switch>
       </main>
-      {/* <Footer /> */}
+      <Footer />
     </ThemeProvider>
   );
 });
