@@ -1,19 +1,24 @@
-import React from 'react';
-import {Counter} from './components/counter/Counter';
-import './App.css';
-import {Switch, Route} from 'react-router-dom';
-import {Header} from './components/header/Header';
+import React from "react";
+import { Counter } from "./components/counter/Counter";
+import "./App.css";
+import { Switch, Route } from "react-router-dom";
+import { Header } from "./components/header/Header";
+import { ThemeProvider } from "@material-ui/core";
+import { theme } from "./theme";
 
-function App() {
+const App: React.FC<{}> = React.memo(() => {
   return (
-    <div className="App">
+    <ThemeProvider theme={theme}>
       <Header />
-      <Switch>
-        <Route exact path="/" component={Counter} />
-        <Route exact path="/about" component={Header} />
-      </Switch>
-    </div>
+      <main className="App">
+        <Switch>
+          <Route exact path="/" component={Counter} />
+          <Route exact path="/about" component={Header} />
+        </Switch>
+      </main>
+      {/* <Footer /> */}
+    </ThemeProvider>
   );
-}
+});
 
 export default App;

@@ -1,14 +1,14 @@
-import React from 'react';
-import {NavLink} from 'react-router-dom';
+import React from "react";
+import { NavLink } from "react-router-dom";
 
 const LINKS = [
   {
-    name: 'Main',
-    path: '/',
+    name: "Main",
+    path: "/",
   },
   {
-    name: 'About',
-    path: '/about/',
+    name: "About",
+    path: "/about/",
   },
 ];
 
