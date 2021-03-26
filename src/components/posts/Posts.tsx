@@ -22,20 +22,16 @@ export function Posts() {
   }, []); // eslint-disable-line
 
   const elements = () =>
-    (posts as IPostTransform[]).map(({ id, title }) => {
-      return (
-        <div key={id}>
-          {/* <Fade in={true} timeout={400 * id}> */}
-          {title}
-          <br />
-          {/* </Fade> */}
-        </div>
-      );
-    });
+    (posts as IPostTransform[]).map(({ id, title }) => (
+      <div key={id}>
+        {title}
+        <br />
+      </div>
+    ));
 
   return (
     <Fade in={true} timeout={1200}>
-      <section className={styles.counter}>
+      <section className={styles.posts}>
         <h1>Посты</h1>
         {isLoading && <Loading />}
         {posts && elements()}

@@ -9,15 +9,18 @@ import {
 } from "./counterSlice";
 import styles from "./Counter.module.css";
 import { Button, Fade } from "@material-ui/core";
+import { useTranslation } from "react-i18next";
 
 export function Counter() {
   const count = useSelector(selectCount);
   const dispatch = useDispatch();
   const [incrementAmount, setIncrementAmount] = useState("2");
+  const { t } = useTranslation();
 
   return (
     <Fade in={true} timeout={1200}>
       <section className={styles.counter}>
+        <h1>{t("description.part2")}</h1>
         <div className={styles.row}>
           <button
             className={styles.button}
