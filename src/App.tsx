@@ -5,6 +5,7 @@ import { Header } from "./components/header/Header";
 import { ThemeProvider } from "@material-ui/core";
 import { theme } from "./theme";
 import { Footer } from "./components/footer/Footer";
+import { Posts } from "./components/posts/Posts";
 
 const App: React.FC<{}> = React.memo(() => {
   return (
@@ -12,8 +13,8 @@ const App: React.FC<{}> = React.memo(() => {
       <Header />
       <main className="App">
         <Switch>
-          <Route exact path="/" component={Counter} />
-          <Route exact path="/about" component={Header} />
+          <Route exact path="/" component={Posts} />
+          <Route exact path="/about" component={Counter} />
         </Switch>
       </main>
       <Footer />
