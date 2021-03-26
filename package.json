@@ -1,6 +1,6 @@
 {
   "name": "my-app",
-  "homepage": "https://timrawork.github.io/react-redux-toolkit-starter",
+  "homepage": ".",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

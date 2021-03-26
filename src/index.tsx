@@ -7,7 +7,7 @@ import { Provider } from "react-redux";
 import * as serviceWorker from "./serviceWorker";
 import { PersistGate } from "redux-persist/integration/react";
 import { HashRouter } from "react-router-dom";
-import "./i18n/i18n";
+import "./i18n/config";
 
 ReactDOM.render(
   <Provider store={store}>
