@@ -1,38 +1,52 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 import { AppThunk, RootState } from "../../app/store";
 import { getPostsRequest } from "../../api";
 
-interface CounterState {
-  value: number;
-}
-
-const initialState: CounterState = {
-  value: 0,
+const initialState = {
+  data: [] as Array<Object> | [],
+  isLoading: false as boolean,
+  error: null as string | null,
 };
 
-export const counterSlice = createSlice({
-  name: "counter",
+export const postsSlice = createSlice({
+  name: "posts",
   initialState,
   reducers: {
-    increment: (state) => {
-      state.value += 1;
+    request: (state) => {
+      state.isLoading = true;
     },
-    decrement: (state) => {
-      state.value -= 1;
-    },
-    incrementByAmount: (state, action: PayloadAction<number>) => {
-      state.value += action.payload;
+    success: (state, action: any) => {
+      state.isLoading = false;
+      state.data = action.payload;
     },
   },
 });
 
-export const { increment, decrement, incrementByAmount } = counterSlice.actions;
+export const { request, success } = postsSlice.actions;
 
-export const getPostsAsync = (): AppThunk => async () => {
-  const response = await getPostsRequest();
-  console.log("resp = ", response);
+export interface IPost {
+  id: number;
+  title: { rendered: string };
+}
+export interface IPostTransform {
+  id: number;
+  title: string;
+}
+
+const _transformPost = ({ id, title }: IPost): IPostTransform => {
+  return {
+    id: id,
+    title: title["rendered"],
+  };
 };
 
-export const selectCount = (state: RootState) => state.counter.value;
+export const getPostsThunk = (): AppThunk => async (dispatch) => {
+  dispatch(request());
+  const { data } = await getPostsRequest();
+  dispatch(success(data.map(_transformPost)));
+};
 
-export default counterSlice.reducer;
+export const selectPosts = (state: RootState) => state.posts.data;
+export const selectIsLoading = (state: RootState) => state.posts.isLoading;
+
+export default postsSlice.reducer;
