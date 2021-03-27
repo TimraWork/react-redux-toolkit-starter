@@ -8,9 +8,12 @@ import {
 import styles from "./Posts.module.css";
 import { Fade } from "@material-ui/core";
 import { useDispatch, useSelector } from "react-redux";
-import { Loading } from "../loading/Loading";
+import { Loading } from "../Loading/Loading";
+import { useTranslation } from "react-i18next";
 
 export function Posts() {
+  const { t } = useTranslation();
+
   const posts = useSelector(selectPosts);
   const isLoading = useSelector(selectIsLoading);
   const dispatch = useDispatch();
@@ -32,7 +35,7 @@ export function Posts() {
   return (
     <Fade in={true} timeout={1200}>
       <section className={styles.posts}>
-        <h1>Посты</h1>
+        <h1>{t("title")}</h1>
         {isLoading && <Loading />}
         {posts && elements()}
       </section>
