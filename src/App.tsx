@@ -6,6 +6,7 @@ import { ThemeProvider } from "@material-ui/core";
 import { theme } from "./theme";
 import { Footer } from "./components/Footer/Footer";
 import { Posts } from "./components/Posts/Posts";
+// import { Login } from "./components/Login/Login";
 
 const App: React.FC = React.memo(() => {
   return (
@@ -13,6 +14,7 @@ const App: React.FC = React.memo(() => {
       <Header />
       <main className="App">
         <Switch>
+          {/* <Route exact path="/" component={Login} /> */}
           <Route exact path="/" component={Posts} />
           <Route exact path="/about" component={Counter} />
         </Switch>
