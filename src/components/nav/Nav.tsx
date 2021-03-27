@@ -11,6 +11,10 @@ const LINKS = [
     name: "About",
     path: "/about/",
   },
+  {
+    name: "Posts",
+    path: "/posts/",
+  },
 ];
 
 export const Nav: React.FC = React.memo(() => {
