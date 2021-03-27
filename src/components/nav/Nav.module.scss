@@ -1,0 +1,9 @@
+.nav {
+  a {
+    padding: 0 5px;
+
+    &[aria-current] {
+      color: red !important;
+    }
+  }
+}

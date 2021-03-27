@@ -1,5 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import styles from "./Nav.module.scss";
 
 const LINKS = [
   {
@@ -14,7 +15,7 @@ const LINKS = [
 
 export const Nav: React.FC = React.memo(() => {
   return (
-    <nav>
+    <nav className={styles.nav}>
       {LINKS.map((item, index) => (
         <NavLink href="/" key={index} to={item.path} exact>
           {item.name}
